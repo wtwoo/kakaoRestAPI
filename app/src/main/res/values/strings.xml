@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">kakaoRestAPI</string>
+    <string name="loading">loading</string>
+    <string name="grant_permissions_settings">설정에서 권한을 허용할 수 있어요</string>
+    <string name="profile_activity_label">프로필 사진 변경</string>
+    <string name="select">선택</string>
+</resources>
