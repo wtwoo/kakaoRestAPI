@@ -65,6 +65,7 @@ class MainActivity : BaseActivity(), MainContract.View {
     override fun detectAdultSuccess(kakaoDetectAdult: KaKaoApiResult) {
         Log.d(TAG, "detectAdultSuccess result : $kakaoDetectAdult")
         val message = StringUtils.detectAdultMessage(kakaoDetectAdult.detectAdultStatus)
+        resultTextView.text = message
         showToast(message)
     }
 
