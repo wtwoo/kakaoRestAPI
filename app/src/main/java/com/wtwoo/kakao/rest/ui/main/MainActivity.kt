@@ -69,6 +69,11 @@ class MainActivity : BaseActivity(), MainContract.View {
         showToast(message)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.clearDisposable()
+    }
+
     companion object {
         const val imageUrl = "https://t1.daumcdn.net/alvolo/_vision/openapi/r2/images/09.jpg"
         val TAG: String = MainActivity::class.java.simpleName
