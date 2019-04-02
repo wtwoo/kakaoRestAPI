@@ -1,31 +1,29 @@
-package com.wtwoo.kakao.rest.ui.main
+package com.wtwoo.kakao.rest.ui.adult
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import com.wtwoo.kakao.rest.R
 import com.wtwoo.kakao.rest.ext.loadUrl
-import com.wtwoo.kakao.rest.model.KaKaoApiResult
+import com.wtwoo.kakao.rest.model.AdultResultRepo
 import com.wtwoo.kakao.rest.ui.base.BaseActivity
+import com.wtwoo.kakao.rest.util.Log
 import com.wtwoo.kakao.rest.util.StringUtils
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_adult_detect.*
 
-
-class MainActivity : BaseActivity(), MainContract.View {
-    override lateinit var presenter: MainContract.Presenter
-
+class AdultDetectActivity : BaseActivity(), AdultDetectContract.View {
+    override lateinit var presenter: AdultDetectContract.Presenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_adult_detect)
         init()
         initListener()
     }
 
     private fun init() {
-        presenter = MainPresenter(this)
+        presenter = AdultDetectPresenter(this)
         presenter.start()
     }
 
@@ -62,9 +60,13 @@ class MainActivity : BaseActivity(), MainContract.View {
         }
     }
 
-    override fun detectAdultSuccess(kakaoDetectAdult: KaKaoApiResult) {
-        Log.d(TAG, "detectAdultSuccess result : $kakaoDetectAdult")
-        val message = StringUtils.detectAdultMessage(kakaoDetectAdult.detectAdultStatus)
+    override fun detectAdultSuccess(adultResultRepo: AdultResultRepo) {
+        Log.d(TAG, "detectAdultSuccess result : $adultResultRepo")
+        var message = ""
+        adultResultRepo.result?.let {
+             message = StringUtils.detectAdultMessage(it)
+        }
+
         resultTextView.text = message
         showToast(message)
     }
@@ -76,6 +78,6 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     companion object {
         const val imageUrl = "https://t1.daumcdn.net/alvolo/_vision/openapi/r2/images/09.jpg"
-        val TAG: String = MainActivity::class.java.simpleName
+        val TAG: String = AdultDetectActivity::class.java.simpleName
     }
 }

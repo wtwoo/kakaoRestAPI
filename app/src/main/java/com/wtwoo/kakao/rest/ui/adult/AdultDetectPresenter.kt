@@ -1,4 +1,4 @@
-package com.wtwoo.kakao.rest.ui.main
+package com.wtwoo.kakao.rest.ui.adult
 
 import android.Manifest
 import android.app.Activity
@@ -17,7 +17,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
 
-class MainPresenter(private val view: MainContract.View) : MainContract.Presenter {
+class AdultDetectPresenter(private val view: AdultDetectContract.View) : AdultDetectContract.Presenter {
     private val compositeDisposable by lazy { CompositeDisposable() }
 
     private fun getActivity(): Activity {
@@ -61,7 +61,7 @@ class MainPresenter(private val view: MainContract.View) : MainContract.Presente
             .subscribe({
                 view.hideProgressDialog()
                 view.detectAdultSuccess(it)
-                Log.d(TAG, "detectAdultResult : ${it.detectAdultStatus}")
+                Log.d(TAG, "detectAdultResult : ${it.result}")
             }, {
                 view.hideProgressDialog()
                 Log.d(TAG, "detectAdultResult error: $it")
@@ -82,7 +82,7 @@ class MainPresenter(private val view: MainContract.View) : MainContract.Presente
             .subscribe({
                 view.hideProgressDialog()
                 view.detectAdultSuccess(it)
-                Log.d(TAG, "detectAdultResult : ${it.detectAdultStatus}")
+                Log.d(TAG, "detectAdultResult : ${it.result}")
             }, {
                 view.hideProgressDialog()
                 Log.d(TAG, "detectAdultResult error: $it")
@@ -91,6 +91,6 @@ class MainPresenter(private val view: MainContract.View) : MainContract.Presente
     }
 
     companion object {
-        val TAG: String = MainPresenter::class.java.simpleName
+        val TAG: String = AdultDetectPresenter::class.java.simpleName
     }
 }

@@ -1,13 +1,13 @@
-package com.wtwoo.kakao.rest.ui.main
+package com.wtwoo.kakao.rest.ui.adult
 
 import android.net.Uri
-import com.wtwoo.kakao.rest.model.KaKaoApiResult
+import com.wtwoo.kakao.rest.model.AdultResultRepo
 import com.wtwoo.kakao.rest.ui.base.BasePresenter
 import com.wtwoo.kakao.rest.ui.base.BaseView
 
-interface MainContract {
+interface AdultDetectContract {
     interface View : BaseView<Presenter> {
-        fun detectAdultSuccess(result: KaKaoApiResult)
+        fun detectAdultSuccess(result: AdultResultRepo)
     }
 
     interface Presenter : BasePresenter {
