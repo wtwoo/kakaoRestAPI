@@ -24,7 +24,7 @@
         </activity>
         <activity android:name=".ui.face.FaceDetectActivity"/>
         <activity android:name=".ui.adult.AdultDetectActivity"/>
-
+        <activity android:name=".ui.multitag.MultiTagActivity"/>
         <activity
                 android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
                 android:theme="@style/Base.Theme.AppCompat"/>

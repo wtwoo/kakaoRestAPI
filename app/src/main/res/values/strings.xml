@@ -4,4 +4,5 @@
     <string name="grant_permissions_settings">설정에서 권한을 허용할 수 있어요</string>
     <string name="profile_activity_label">프로필 사진 변경</string>
     <string name="select">선택</string>
+    <string name="back_pressed_message">"'뒤로' 버튼을 한번 더 누르시면 종료됩니다."</string>
 </resources>

@@ -6,7 +6,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
-    val KAKAO_KEY: String = "key를 입력하세요"
+    private const val KAKAO_KEY: String = "2f3430fc72d8913565c8c19326f8668a"
     fun buildManager(): RetrofitManager {
         return Retrofit.Builder()
             .baseUrl(Utils.KAKAO_API_URL)
